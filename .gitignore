@@ -11,3 +11,10 @@ yarn-error.log
 
 # Keys
 backend/.env
+
+# Compiled JS
+dist
+build
+
+# Prisma
+migrations

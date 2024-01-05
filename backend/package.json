@@ -7,15 +7,25 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "nodemon": "^3.0.2",
-    "prisma": "^5.7.1"
+    "prisma": "^5.7.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "dev_start": "npx nodemon server.js",
+    "migrate_to_db": "npx prisma migrate dev --name my_migration_name",
+    "pull_schema_from_db": "npx prisma db pull",
+    "push_schema_to_db": "npx prisma db push",
+    "seed_db_with_dummy_data": "node prisma/seed.js",
+    "migrate_and_seed": "npm run migrate_to_db && npm run seed_db_with_dummy_data",
+    "clean_db_tables_data": "npx prisma migrate reset",
+    "prod_start": "node server.js"
   },
-  "description": "",
-  "main": "index.js",
   "type": "module",
-  "author": "",
-  "license": "ISC"
+  "main": "server.js",
+  "engines": {
+    "node": ">=16"
+  }
 }
